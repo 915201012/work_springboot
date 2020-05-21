@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: springboot-work
+  messages:
+    basename: i18n.login
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog_system?serverTimezone=UTC
+    username: root
+    password: root
+  thymeleaf:
+    cache: false
+    mode: HTML5
+    servlet:
+      content-type: text/html
+    prefix: classpath:/templates/client/
+    encoding: UTF-8
+    suffix: .html
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+server:
+  port: 8000
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.demo.springboot.work.pojo
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMthodsrguments: true
+  params: count=countSql
+
+
+logging:
+  level:
+    com.demo.springboot.work.mapper: debug
+
